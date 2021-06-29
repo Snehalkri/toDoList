@@ -1,0 +1,100 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+   $(document).ready(myClick);
+  function myClick(){
+    $('#button').click(myAdd);
+    $(document).on('click','.item',myRemove);
+  }
+  
+  function myAdd(){
+  var str= $('input[name=textbox]').val();
+  str = str.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+    return letter.toUpperCase();
+   });
+
+  $('.toList').append('<div class="item" style="border: 1px solid #026273;height:24px; text-align:left;padding:8px;">' + str +'<span class="del" style="float:right;">X</span>' + '</div>');
+  
+  }
+  
+
+function myRemove(){
+    $(this).remove();
+  }
+
+    </script>   
+    <style>
+        
+body{text-align: center;
+     background-color: #03A1BE;
+    }
+        
+.wrapper{
+  padding:15px;
+  width:400px;
+  margin:10px auto;
+  position:relative;
+  overflow:auto;
+}
+
+#button {
+  position:absolute;
+  top:14px;
+  right:50px;
+  background:#015F6F;
+  padding:5px 10px;
+  border-radius:5px;
+  color:#fff;
+  cursor:pointer;
+  box-shadow:1px 1px 5px #555;
+}
+
+.toList {
+  margin-top:15px
+}
+
+.list {
+ border: 1px solid #026273;
+  margin:4px 0;
+  font-size:2em;
+}
+
+span.del {
+  color:#026273;
+  font-size:1em;
+  padding-top: 0.6px;
+  padding-right:15px;
+  cursor:pointer;
+}
+i:hover{color: yellow;} 
+.c{padding: 5vw;}    
+    
+    </style>
+    
+    </head>
+<body>
+    <div class="c">
+    <h1 style="color: white;">WORK TO-DOS</h1>
+    <p><span style="color: yellow;">Enter text into the input field to add items to the list.<br></span>
+        <span style="color:aqua;">Cthe item to mark it as complete. <br></span>
+        <span style="color: darkslategray;">Click the "X" to remove the item from list.<br></span>
+        
+<div class="wrapper">
+<form>
+
+<input name='textbox' type='text' class='texting'  />
+</form>
+<div id="button"><i class="fa fa-pencil" aria-hidden="true"></i></div>
+
+<div class="toList" style="background-color: #4EB9CD; color: white; border: 1px #026273; ">
+</div>
+
+</div>
+</div>
+    
+    </body>
+
+
+</html>
